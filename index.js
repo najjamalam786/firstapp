@@ -29,7 +29,7 @@ app.use("/api/order", orderRouter);
 const PORT = process.env.PORT || 8000;
 
 mongoose
-  .connect(process.env.MONGO_DB)
+  .connect(process.env.MONGODB_URL)
   .then(() =>
     app.listen(PORT, () =>
       console.log(`Server and DataBase running on http://localhost:${PORT}`)
