@@ -20,6 +20,12 @@ app.use("/api/user", userRouter);
 app.use("/api/item", itemRouter);
 app.use("/api/order", orderRouter);
 
+// app.use(express.static("client/build"));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
+
 const PORT = process.env.PORT || 8000;
 
 mongoose
