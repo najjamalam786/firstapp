@@ -1,10 +1,10 @@
 import {} from "dotenv/config.js";
 import User from "../model/userModel.js";
 import Twilio from "twilio";
-const ACaccountSid = process.env.TWILIO_ACCOUNT_SID;
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
-const client = Twilio(ACaccountSid, authToken);
+const client = Twilio(accountSid, authToken);
 const sendSMS = async (toMobile, msg) => {
   let msgOption = {
     from: process.env.TWILIO_FROM_NUMBER,
