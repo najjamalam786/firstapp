@@ -12,7 +12,7 @@ export const getWeek = async (req, res, next) => {
   }
 };
 
-// // add weeks .post('/week', getWeek)
+// add weeks .post('/add-week', addWeek)
 // export const addWeek = async (req, res, next) => {
 //   const weekData = req.body;
 

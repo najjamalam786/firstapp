@@ -20,6 +20,13 @@ app.use("/api/user", userRouter);
 app.use("/api/item", itemRouter);
 app.use("/api/order", orderRouter);
 
+app.get("/", (req, res) => {
+  res.send("Server is up and running");
+
+  // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+// app.use(express.static(path.join(__dirname, "client/build")));
 // app.use(express.static("client/build"));
 
 // app.get("*", (req, res) => {

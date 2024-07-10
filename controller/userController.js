@@ -135,7 +135,7 @@ export const deleteUserCartItems = async (req, res, next) => {
       { $pull: { userCart: { _id: cartData._id } } }
     ).then(async () => {
       await User.findOne({ _id: cartData.userId }).then((response) => {
-        if (response.userCart) {
+        if (response.userCart !== null) {
           res.status(200).json(response.userCart);
         } else {
           res.status(200).json(null);
