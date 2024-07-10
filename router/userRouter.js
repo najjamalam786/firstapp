@@ -10,10 +10,11 @@ import {
   validateUser,
   verifyOTP,
 } from "../controller/userController.js";
-import { sentOTP } from "../utils/sendSMS.js";
+import { getMessage, sentOTP } from "../utils/sendSMS.js";
 const router = express.Router();
 
 router
+  .get("/get-message", getMessage)
   .post("/get-user", getUser)
   .post("/verify_phone", createUser)
   .post("/message", sentOTP)

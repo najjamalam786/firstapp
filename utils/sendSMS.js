@@ -1,6 +1,7 @@
 import {} from "dotenv/config.js";
 import User from "../model/userModel.js";
 import Twilio from "twilio";
+import { json } from "body-parser";
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 
@@ -19,15 +20,14 @@ const sendSMS = async (toMobile, msg) => {
   }
 };
 
-// // post('/api/user/message', getMessage);
-// export const getMessage = async (req, res, next) => {
-//   try {
-//     sendSMS(req.body.mobileNum, req.body.message);
-//     res.status(200).json({ message: "Message sent" });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
+// get('/api/user/get-message', getMessage);
+export const getMessage = async (req, res, next) => {
+  try {
+    res.status(200).json({ json: "Message sent" });
+  } catch (error) {
+    next(error);
+  }
+};
 export const sentOTP = async (req, res, next) => {
   try {
     const OTP = randomNumber();
