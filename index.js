@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import userRouter from "./router/userRouter.js";
 import itemRouter from "./router/itemRouter.js";
 import orderRouter from "./router/orderRouter.js";
+import User from "./model/userModel.js";
+import Item from "./model/itemModel.js";
 // import path from "path";
 // import { fileURLToPath } from "url";
 // const __filename = fileURLToPath(import.meta.url);
@@ -20,8 +22,9 @@ app.use("/api/user", userRouter);
 app.use("/api/item", itemRouter);
 app.use("/api/order", orderRouter);
 
-app.get("/", (req, res) => {
-  res.send("Server is up and running");
+app.get("/", async (req, res) => {
+  const items = await Item.find();
+  res.send(items);
 
   // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
