@@ -22,12 +22,12 @@ app.use("/api/user", userRouter);
 app.use("/api/item", itemRouter);
 app.use("/api/order", orderRouter);
 
-app.get("/", async (req, res) => {
-  const items = await Item.find();
-  res.send(items);
+// app.get("/", async (req, res) => {
+//   const items = await Item.find();
+//   res.send(items);
 
-  // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 
 // app.use(express.static(path.join(__dirname, "client/build")));
 // app.use(express.static("client/build"));

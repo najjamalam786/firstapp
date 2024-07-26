@@ -97,7 +97,6 @@ export const updateUserCart = async (req, res, next) => {
       { $set: { "userCart.$.quantity": cartData.quantity } },
       { new: true }
     );
-
     res.status(200).json(response.userCart);
   } catch (error) {
     next(error);
@@ -109,7 +108,7 @@ export const getUserCart = async (req, res, next) => {
   const { userId } = req.body;
   try {
     await User.findOne({ _id: userId }).then((response) => {
-      if (response.userCart.length === 0) {
+      if (response.userCart === null) {
         res.status(200).json(null);
       } else {
         res.status(200).json(response.userCart);
